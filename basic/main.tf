@@ -76,7 +76,23 @@ resource "aws_security_group" "ai-cp2-06-sg" {
     }
 }
 
-# 4. EC2 생성을 위한 os 이미지 정보 조회
+# 4. EC2 생성을 위한 AMI(Amazon Machine Image) 이미지 정보 조회
+data "aws_ami" "amazon_linux" {
+    # 최신 설정
+    most_recent = true
+    # 소유자
+    owners = ["amazon"]
+    # 필터링
+    filter {
+      name = "name"
+      values = ["al2003-ami-*"]
+    }
+    # 필터 추가
+    filter {
+      name = "architecture"
+      values = ["x86_64"]
+    } 
+}
 
 # 5. EC2 생성 선언
 
