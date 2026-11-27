@@ -1,4 +1,7 @@
 # 테라폼 초기화 후 생성된 모듈 *.exe등 제외
 .terraform/
 
+**/*.tfstate
+**/*.tstate.*
+
 # 필요시 추가
