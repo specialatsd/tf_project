@@ -95,10 +95,10 @@ data "aws_ami" "amazon_linux" {
 }
 
 # 5. EC2 생성 선언
-resource "aws_instance" "ai-cp2-15-ec2" {
+resource "aws_instance" "ai-cp2-06-ec2" {
   # 태그
   tags = {
-    Name = "ai-cp2-15-ec2"
+    Name = "ai-cp2-06-ec2"
   }
   # AMI
   ami = data.aws_ami.amazon_linux.id
@@ -119,7 +119,7 @@ resource "aws_instance" "ai-cp2-15-ec2" {
 # 6. 탄력적 IP 적용(1차 버전에서는 제외)
 resource "aws_eip" "ai-cp2-06-eip" {
     # 연결할 ec2 인스턴스 id 지정
-    instance = aws_instance.ai-cp2-15-ec2.id
+    instance = aws_instance.ai-cp2-06-ec2.id
     # 네트워크
     domain = "vpc"
 }
