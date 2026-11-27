@@ -299,6 +299,10 @@ you run "terraform apply" now.
 ```
 terraform apply
 ```
+생성후 접속 테스트
+    - 호스트 IP 변경: ec2 인스턴스 대시보드로 확인
+    - 사용자 변경 : ec2-user
+```
 - step5 : 테라폼 삭제
 ```
 terraform 
