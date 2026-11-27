@@ -85,7 +85,7 @@ data "aws_ami" "amazon_linux" {
     # 필터링
     filter {
       name = "name"
-      values = ["al2003-ami-*"]
+      values = ["al2023-ami-*"]
     }
     # 필터 추가
     filter {
@@ -95,5 +95,25 @@ data "aws_ami" "amazon_linux" {
 }
 
 # 5. EC2 생성 선언
+resource "aws_instance" "ai-cp2-15-ec2" {
+  # 태그
+  tags = {
+    Name = "ai-cp2-15-ec2"
+  }
+  # AMI
+  ami = data.aws_ami.amazon_linux.id
+  # 인스턴스 유형
+  instance_type = = var.instance_type
+  # 키페어
+  key_name = var.key_name
+  # 서브넷
+  subnet_id = data.aws_subnets.default.ids[0] # a,b,c,d 중 첫번째 a동
+  #보안그룹
+  vpc_security_group_ids = [aws_security_group.ai-cp2-06-sg.id
+  ]
+  # 스토리지 생략
+  # 고급설정 생략
+  # IP는 임시적 동적 할당
+}
 
 # 6. 탄력적 IP 적용(1차 버전에서는 제외)
