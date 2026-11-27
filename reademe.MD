@@ -27,6 +27,11 @@ cd basic
 ```
 terraform init
 ```
+결과물 체크
+- .terraform/~ : 공급자 플러그인, 바이너리, 모듈, 정보등 생성
+- .terraform.lock.hcl : 프로바이더 모듈의 지정한 버전, 해시값 잠금 관리 -> 안정적 관리, 자동생성시 체킹 용도 활용
+```
+
 - step2 : 문법 검사(체킹)
 ```
 terraform validate
