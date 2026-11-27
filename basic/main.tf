@@ -103,7 +103,7 @@ resource "aws_instance" "ai-cp2-15-ec2" {
   # AMI
   ami = data.aws_ami.amazon_linux.id
   # 인스턴스 유형
-  instance_type = = var.instance_type
+  instance_type = var.instance_type
   # 키페어
   key_name = var.key_name
   # 서브넷
